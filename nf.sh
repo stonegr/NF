@@ -18,9 +18,9 @@ export LC_ALL="en_US";
 clear;
 echo -e "${Font_Red}脚本来源于互联网，所有权归作者d${Font_Suffix}";
 echo -e "${Font_Red}本工具测试结果仅供参考，请以实际使用为准${Font_Suffix}";
-echo -e "${Font_Red}购买正规Netflix账号  https://jcnf.xyz/nf${Font_Suffix}";
 echo -e " ** Version: v${shell_version}";
-
+yum install -y curl jq 2> /dev/null
+apt install -y curl jq
 function PharseJSON() {
     # 使用方法: PharseJSON "要解析的原JSON文本" "要解析的键值"
     # Example: PharseJSON ""Value":"123456"" "Value" [返回结果: 123456]
