@@ -300,13 +300,13 @@ function MediaUnlockTest() {
 curl -V >/dev/null 2>&1
 if [ $? -ne 0 ]; then
     echo -e "${Font_Red}Please install curl${Font_Suffix}"
-    apt install -y curl || yum install -y curl 2>/dev/null
+    apt install -y curl || yum install -y curl >/dev/null 2>&1
 fi
 
 jq -V >/dev/null 2>&1
 if [ $? -ne 0 ]; then
     echo -e "${Font_Red}Please install jq${Font_Suffix}"
-    apt install -y jq || yum install -y jq 2>/dev/null
+    apt install -y jq || yum install -y jq >/dev/null 2>&1
 fi
 echo " ** 正在测试IPv4解锁情况"
 check4=$(ping 1.1.1.1 -c 1 2>&1)
