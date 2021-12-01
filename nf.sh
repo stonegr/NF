@@ -256,7 +256,13 @@ function MediaUnlockTest_YouTube_Region() {
         return
     fi
 
-    echo -n -e "\r YouTube Region:\t\t\t${Font_Red}No${Font_Suffix}\n"
+    local result=$(curl --user-agent "${UA_Browser}" -${1} -sL "https://www.youtube.com/red" | sed 's/,/\n/g' | grep "subTitle")
+    if [[ ${result} =~ "YouTube Premium" ]]; then
+        echo -n -e "\r YouTube Region:\t\t\t${Font_Red}No${Font_Suffix}\n"
+        return
+    fi
+
+    echo -n -e "\r YouTube Region:\t\t\t${Font_Green}US${Font_Suffix}\n"
     return
 }
 
